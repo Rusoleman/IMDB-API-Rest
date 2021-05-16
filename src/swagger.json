@@ -1,0 +1,132 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title":"IMDB REST API",
+        "version": "1.0",
+        "description": "REST API to obtain information about movies, series, actors and directors"
+    },
+    "paths":{
+        "/actors":{
+            "get":{
+                "security": [{"jwt_token":[]}],
+                "description":"Obtain all actors from the database",
+                "tags":["Actors"],
+                "requestBody":{
+                    "content": {
+                        "aplication/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/Actor"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description":"Actor list"
+                    }
+                }
+            },
+            "post":{
+                "security": [{"jwt_token":[]}],
+                "description":"Create an actor",
+                "tags": ["Actors"],
+                "responses": {
+                    "201":{
+                        "description":"Has been created an actor sucessfully"
+                    }
+                }
+            }
+
+        },
+        "/directors":{
+            "get":{
+                "description":"Obtain all directors",
+                "tags": ["Directors"],
+                "requestBody":{
+                    "content": {
+                        "aplication/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/Director"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description":"Director list"
+                    }
+                }
+            },
+            "post":{
+                "description":"Create an director",
+                "tags": ["Directors"],
+                "responses": {
+                    "201":{
+                        "description":"Has been added a new director"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Actor":{
+                "properties": {
+                    "firstname":{
+                        "type":"string"
+                    },
+                    "lastname":{
+                        "type": "string"
+                    },
+                    "dob":{
+                        "type": "string",
+                        "description":"Day of birth",
+                        "example":"1940-02-10"
+                    },
+                    "biography":{
+                        "type":"string"
+                    },
+                    "profile_photo":{
+                        "type":"string",
+                        "description":"URL image",
+                        "example":""
+                    },
+                    "active":{
+                        "type":"boolean"
+                    }
+
+                }
+            },
+            "Director":{
+                "properties": {
+                    "firstname":{
+                        "type":"string"
+                    },
+                    "lastname":{
+                        "type": "string"
+                    },
+                    "dob":{
+                        "type": "string",
+                        "description":"Day of birth",
+                        "example":"1940-02-10"
+                    },
+                    "biography":{
+                        "type":"string"
+                    },
+                    "profile_photo":{
+                        "type":"string",
+                        "description":"URL image",
+                        "example":""
+                    }
+                }
+            }
+        },
+        "securitySchemes":{
+            "jwt_token": {
+                "type": "http",
+                "scheme":"bearer",
+                "bearerFormat":"JWT"
+            }
+        }
+    }
+}
