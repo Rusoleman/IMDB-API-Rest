@@ -13,13 +13,10 @@ const cors = require('cors');
 //Helmet
 const helmet = require('helmet');
 
-
-
 //════════════ Routes ════════════
 
 const actorsRoutes  = require('./routes/actors.routes');
 const directorsRoutes  = require('./routes/directors.routes');
-
 
 //═════════ Middlewares ══════════
 app.use(express.json());
@@ -29,9 +26,7 @@ app.use(morgan());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(morgan('combined', {stream: accessLogStream}));
 
-
 app.use("/api/v1", actorsRoutes, directorsRoutes);
-
 
 //═════════ Eror List ═════════════════
 var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),{flags: 'a'});

@@ -46,3 +46,5 @@ app.use((res, next, req, err) => {
     }
     return res.status(500)
 });
+
+module.exports = routes;
