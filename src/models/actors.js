@@ -23,8 +23,6 @@ module.exports = (sequelize, DataTypes) => {
     dob: DataTypes.DATE,
     biography: DataTypes.TEXT,
     profile_photo: DataTypes.STRING,
-    created_at: DataTypes.DATE,
-    modified_at: DataTypes.DATE,
     active: DataTypes.BOOLEAN
   }, {
     sequelize,

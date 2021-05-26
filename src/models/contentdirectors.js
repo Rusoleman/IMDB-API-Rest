@@ -16,8 +16,6 @@ module.exports = (sequelize, DataTypes) => {
   ContentDirectors.init({
     director_id: DataTypes.INTEGER,
     content_id: DataTypes.INTEGER,
-    created_at: DataTypes.DATE,
-    modified_at: DataTypes.DATE,
     active: DataTypes.BOOLEAN
   }, {
     sequelize,

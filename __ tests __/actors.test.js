@@ -14,8 +14,7 @@ test("Prooving actor creation", () =>{
         biography:'',
         profile_photo:"",
         active: true,
-        created_at: today,
-        updated_at: today
+        
     };
     //<-- Act -->
     let response = await supertest(app).post("/api/v1/actors").send(actors); 

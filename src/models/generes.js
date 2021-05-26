@@ -13,8 +13,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   Generes.init({
     name: DataTypes.STRING,
-    created_at: DataTypes.DATE,
-    modified_at: DataTypes.DATE,
     active: DataTypes.BOOLEAN
   }, {
     sequelize,

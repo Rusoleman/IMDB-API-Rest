@@ -1,6 +1,6 @@
 const {Directors} = require('../models');
 
-const getAll = async (res, req, next) => {
+const getAll = async (req, res, next) => {
     try {
         const result = await Directors.findAll({raw: true});
         res.json(result);
