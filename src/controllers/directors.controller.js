@@ -24,7 +24,7 @@ const update = async (req, res, next) => {
         const director = await Directors.update(req.body, {where: {id}});
         res.json(director);
     } catch (error) {
-        
+        next(error);
     }
 }
 
